@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseListComponent implements OnInit {
 
+  courses: any=[];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  test2():void{
+    this.courses.push({
+      name: "Programacion",
+      theme: "Oficina",
+      startDate: new Date(),
+      endDate: new Date("03/01/2022"),
+      teacher: "Carlos",
+      studentsNumber: 33,
+      totalPrice: 23000,
+      courseReach: "Empresarial",
+      business: "Toyota",
+      classroom: 17,
+   })
   }
 
 }
