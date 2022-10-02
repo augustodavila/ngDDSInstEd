@@ -1,0 +1,150 @@
+<div>
+    <h3>Crear nuevo curso particular</h3>
+    <form>
+      <div>
+        <label>Nombre:</label><br>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="name"
+          placeholder="Nombre del curso"
+        />
+      </div><br>
+
+      <div>
+        <label>Tema:</label><br>
+        <select name="select" [(ngModel)]="theme">
+            <option value="Programacion">Programación</option>
+            <option value="Oficina">Oficina</option>
+            <option value="Diseño Grafico">Diseño Gráfico</option>
+        </select>
+      </div><br>
+
+      <div>
+        <label>Descripción:</label><br>
+        <input
+          type="text"
+          id="description"
+          name="description"
+          [(ngModel)]="description"
+          placeholder="Ingrese una Descripción"
+          size="50"
+        />
+      </div><br>
+
+      <div>
+        <label>Docente:</label><br>
+        <select name="select" [(ngModel)]="teacher">
+            <option value="Andres">Andres</option>
+            <option value="Belen">Belen</option>
+            <option value="Carlos">Carlos</option>
+        </select>
+      </div><br>
+
+      <div>
+        <label>Fecha de inicio:</label><br>
+        <input type="date" [(ngModel)]="startdate"/>
+      </div><br>
+
+      <div>
+        <label>Fecha de finalización:</label><br>
+        <input type="date" [(ngModel)]="enddate"/>
+      </div><br>
+
+      <div>
+        <label>Horario de inicio:</label><br>
+        <input type="time" [(ngModel)]="starttime"/>
+      </div><br>
+
+      <div>
+        <label>Hora de finalización:</label><br>
+        <input type="time" [(ngModel)]="endtime"/>
+      </div><br>
+
+      <div>
+        <label>Costo:</label><br>
+        <input
+          type="text"
+          id="cost"
+          name="cost"
+          [(ngModel)]="cost"
+          placeholder="$"
+        />
+      </div><br>
+
+    </form>
+</div>
+
+<button  (click)="test()"  type="submit" >
+  Cancelar
+</button>
+
+<button  (click)="test()"  type="submit" >
+  Agregar
+</button>
+
+<div> 
+  <h2>-------------------------</h2>
+</div>
+
+<div>
+  <h3>Curso Creado</h3>
+  <form>
+    <div>
+      <h4>El curso ha sido creado exitosamente</h4>
+    </div>
+    <div>
+      <button (click)="test()"  type="submit">Volver</button> 
+    </div>
+  </form>
+</div>
+
+<!--
+<div> 
+  <h2>-------------------------</h2>
+</div>
+<header style="padding: 1rem; background-color: #F7F2A2; text-align: center;">
+  Crear nuevo curso particular
+</header>
+<form action="/">
+  <label for="nombre">Nombre:</label><br>
+  <input type="text" id="nombre" name="nombre" placeholder="Nombre del curso"><br><br>
+
+  <label for="tematica">Tematica:</label><br>
+  <select name="tematica">
+      <option value="programacion">Programacion</option>
+      <option value="programacion">Programacion</option>
+      <option value="programacion">Programacion</option>
+  </select><br><br>
+  <label for="descripcion">Descripcion:</label><br>
+  <textarea name="descripcion" id="descripcion" cols="20" rows="8">Ingrese una descripcion</textarea><br><br>
+  <label for="docente">Docente:</label><br>
+  <select name="docente">
+      <option value="Perez">Perez</option>
+      <option value="Lopez">Lopez</option> 
+  </select><br><br>
+  <label for="fecha_inicio">Fecha Inicio:</label><br>
+  <input type="date"><br><br>
+  <label for="fecha_finalizacion">Fecha Finalizacion:</label><br>
+  <input type="date"><br><br>
+  <label for="horario_inicio">Horario de inicio:</label><br>
+  <input type="time"><br><br>
+  <label for="horario_finalizacion">Horario de finalizacion:</label><br>
+  <input type="time"><br><br>
+  <label for="costo">Costo:</label><br>
+  <input type="number" min="1" step="any" placeholder="$">
+</form>
+<br> 
+<a href="#">Cancelar</a>
+<button>Agregar</button>
+<br>
+<section  style="border: 1px solid">
+<h2 style="background-color: #F7F2A2;padding: 0px;margin-top: 0px;">Curso creado</h2>
+<p>El curso ha sido creado exitosamente</p>
+<button>Volver</button>
+</section>
+<div>
+
+</div>
+-->
