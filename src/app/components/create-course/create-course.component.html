@@ -15,7 +15,8 @@
 
       <div class="input">
         <label>Tema:</label>
-        <select name="select" placeholder="Seleccione una opción" [(ngModel)]="theme">
+        <select name="select" [(ngModel)]="theme">
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="Programacion">Programación</option>
             <option value="Oficina">Oficina</option>
             <option value="Diseño Grafico">Diseño Gráfico</option>
@@ -24,12 +25,13 @@
 
       <div class="input">
         <label>Descripción:</label>
-        <textarea name="descripcion" id="descripcion" cols="20" rows="8" placeholder="tak taka" [(ngModel)]="description"></textarea>
+        <textarea name="descripcion" id="descripcion" cols="20" rows="8" placeholder="Ingrese una descripción" [(ngModel)]="description"></textarea>
       </div>
 
       <div class="input">
         <label>Docente:</label>
-        <select name="select" placeholder="Seleccione una opción" [(ngModel)]="teacher">
+        <select name="select" [(ngModel)]="teacher">
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="Andres">Andres</option>
             <option value="Belen">Belen</option>
             <option value="Carlos">Carlos</option>
@@ -78,10 +80,6 @@
 
     </div>
 
-</div>
-
-<div> 
-  <h2>-------------------------</h2>
 </div>
 
 <div class="alert" *ngIf="showAlert">
