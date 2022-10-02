@@ -2,13 +2,11 @@
     <header>
       Crear nuevo curso particular
     </header>
-    <form>
+    <div>
       <div class="input">
         <label>Nombre:</label>
         <input
           type="text"
-          id="name"
-          name="name"
           [(ngModel)]="name"
           placeholder="Nombre del curso"
           class="input-text"
@@ -17,7 +15,7 @@
 
       <div class="input">
         <label>Tema:</label>
-        <select name="select" [(ngModel)]="theme">
+        <select [(ngModel)]="theme">
             <option value="Programacion">Programación</option>
             <option value="Oficina">Oficina</option>
             <option value="Diseño Grafico">Diseño Gráfico</option>
@@ -26,12 +24,12 @@
 
       <div class="input">
         <label>Descripción:</label>
-        <textarea name="descripcion" id="descripcion" cols="20" rows="8" placeholder="tak taka"></textarea>
+        <textarea id="descripcion" cols="20" rows="8" placeholder="tak taka"></textarea>
       </div>
 
       <div class="input">
         <label>Docente:</label>
-        <select name="select" [(ngModel)]="teacher">
+        <select [(ngModel)]="teacher">
             <option value="Andres">Andres</option>
             <option value="Belen">Belen</option>
             <option value="Carlos">Carlos</option>
@@ -62,22 +60,20 @@
         <label>Costo:</label>
         <input
           type="text"
-          id="cost"
-          name="cost"
           [(ngModel)]="cost"
           class="input-text"
           placeholder="$"
         />
       </div>
 
-    </form>
+    </div>
 </div>
 
 <button  (click)="test()"  type="submit" >
   Cancelar
 </button>
 
-<button  (click)="test()"  type="submit" >
+<button  (click)="createCourse()" type="submit" >
   Agregar
 </button>
 
@@ -85,17 +81,16 @@
   <h2>-------------------------</h2>
 </div>
 
-<div>
-  <h3>Curso Creado</h3>
-  <form>
-    <div>
-      <h4>El curso ha sido creado exitosamente</h4>
-    </div>
-    <div>
-      <button (click)="test()"  type="submit">Volver</button> 
-    </div>
-  </form>
+<div class="alert" *ngIf="showAlert">
+  <header style="border-bottom: 1px solid black;font-size: 22px;font-weight: bold;">Curso Creado</header>
+  <div>
+    <h4>El curso ha sido creado exitosamente</h4>
+  </div>
+  <div>
+    <button style="margin-bottom: 15px;" (click)="closeAlert()"  type="submit">Volver</button> 
+  </div>
 </div>
+<div class="backdrop" *ngIf="showAlert"></div>
 
 
 <!--

@@ -27,6 +27,7 @@ export class CreateCourseComponent implements OnInit {
   public starttime:any="";
   public endtime:any="";
   public cost:any="";
+  public showAlert:any=false;
 
   constructor() { }
 
@@ -35,6 +36,24 @@ export class CreateCourseComponent implements OnInit {
 
   test():void{
     console.log(this.name,this.theme,this.description,this.teacher,this.cost)
+  }
+
+  createCourse():void{
+    // ver cosas de lucas
+    this.showAlert=true;
+  }
+
+  closeAlert():void{
+    this.showAlert=false;
+    this.name="";
+    this.theme="";
+    this.description="";
+    this.teacher="";
+    this.startdate="";
+    this.enddate="";
+    this.starttime="";
+    this.endtime="";
+    this.cost="";
   }
 
 }
