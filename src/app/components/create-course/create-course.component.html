@@ -1,77 +1,74 @@
-<div>
-    <h3>Crear nuevo curso particular</h3>
+<div class="content">
+    <header>
+      Crear nuevo curso particular
+    </header>
     <form>
-      <div>
-        <label>Nombre:</label><br>
+      <div class="input">
+        <label>Nombre:</label>
         <input
           type="text"
           id="name"
           name="name"
           [(ngModel)]="name"
           placeholder="Nombre del curso"
+          class="input-text"
         />
-      </div><br>
+      </div>
 
-      <div>
-        <label>Tema:</label><br>
+      <div class="input">
+        <label>Tema:</label>
         <select name="select" [(ngModel)]="theme">
             <option value="Programacion">Programación</option>
             <option value="Oficina">Oficina</option>
             <option value="Diseño Grafico">Diseño Gráfico</option>
         </select>
-      </div><br>
+      </div>
 
-      <div>
-        <label>Descripción:</label><br>
-        <input
-          type="text"
-          id="description"
-          name="description"
-          [(ngModel)]="description"
-          placeholder="Ingrese una Descripción"
-          size="50"
-        />
-      </div><br>
+      <div class="input">
+        <label>Descripción:</label>
+        <textarea name="descripcion" id="descripcion" cols="20" rows="8" placeholder="tak taka"></textarea>
+      </div>
 
-      <div>
-        <label>Docente:</label><br>
+      <div class="input">
+        <label>Docente:</label>
         <select name="select" [(ngModel)]="teacher">
             <option value="Andres">Andres</option>
             <option value="Belen">Belen</option>
             <option value="Carlos">Carlos</option>
         </select>
-      </div><br>
+      </div>
 
-      <div>
-        <label>Fecha de inicio:</label><br>
-        <input type="date" [(ngModel)]="startdate"/>
-      </div><br>
+      <div class="input">
+        <label>Fecha de inicio:</label>
+        <input class="input-date" type="date" [(ngModel)]="startdate"/>
+      </div>
 
-      <div>
-        <label>Fecha de finalización:</label><br>
-        <input type="date" [(ngModel)]="enddate"/>
-      </div><br>
+      <div class="input">
+        <label>Fecha de finalización:</label>
+        <input class="input-date" type="date" [(ngModel)]="enddate"/>
+      </div>
 
-      <div>
-        <label>Horario de inicio:</label><br>
-        <input type="time" [(ngModel)]="starttime"/>
-      </div><br>
+      <div class="input">
+        <label>Horario de inicio:</label>
+        <input class="input-date" type="time" [(ngModel)]="starttime"/>
+      </div>
 
-      <div>
-        <label>Hora de finalización:</label><br>
-        <input type="time" [(ngModel)]="endtime"/>
-      </div><br>
+      <div class="input">
+        <label>Hora de finalización:</label>
+        <input class="input-date" type="time" [(ngModel)]="endtime"/>
+      </div>
 
-      <div>
-        <label>Costo:</label><br>
+      <div class="input">
+        <label>Costo:</label>
         <input
           type="text"
           id="cost"
           name="cost"
           [(ngModel)]="cost"
+          class="input-text"
           placeholder="$"
         />
-      </div><br>
+      </div>
 
     </form>
 </div>
@@ -100,6 +97,7 @@
   </form>
 </div>
 
+
 <!--
 <div> 
   <h2>-------------------------</h2>
@@ -118,7 +116,7 @@
       <option value="programacion">Programacion</option>
   </select><br><br>
   <label for="descripcion">Descripcion:</label><br>
-  <textarea name="descripcion" id="descripcion" cols="20" rows="8">Ingrese una descripcion</textarea><br><br>
+
   <label for="docente">Docente:</label><br>
   <select name="docente">
       <option value="Perez">Perez</option>
