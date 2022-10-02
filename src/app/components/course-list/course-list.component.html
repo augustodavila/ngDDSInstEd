@@ -1,54 +1,39 @@
-<!--<div>
-    <h2>Instituto educativo - Listado de cursos</h2>
-    <form>
-        <div>
-            <button>Cursos que disponemos</button> 
-        </div>
-        <div>
-            <button>Cursos particulares</button> 
-        </div>
-        <div>
-            <button>Cursos empresariales</button> 
-        </div>
-    </form>
+<div class="content">
+    <header>
+        Instituto Educativo - Listado de cursos
+    </header>
+    <table style="width:100%">
+        <tr>
+            <th scope="col" style="margin-left:70px;" style="margin-left:70px;">Curso</th>
+            <th scope="col">Tema</th>
+            <th scope="col">Fecha de inicio</th>
+            <th scope="col">Fecha de finalizacion</th>
+            <th scope="col">Docente</th>
+            <th scope="col">Cantidad Alumnos</th>
+            <th scope="col">Precio Total</th>
+            <th scope="col">Alcance de Curso</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Aula</th>
+            <th scope="col">Acciones</th>
+        </tr>
+
+        <tr *ngFor="let course of courses">
+            <td align="center">{{course.name}}</td>
+            <td align="center">{{course.theme}}</td>
+            <td align="center">{{course.startDate | date:"dd/MM/yyyy"}}</td>
+            <td align="center">{{course.endDate | date:"dd/MM/yyyy"}}</td>
+            <td align="center">{{course.teacher}}</td>
+            <td align="center">{{course.studentsNumber}}</td>
+            <td align="center">{{course.totalPrice}}</td>
+            <td align="center">{{course.courseReach}}</td>
+            <td align="center">{{course.business}}</td>
+            <td align="center">{{course.classroom}}</td>
+            <td align="center">{{course.actions}}</td>
+        </tr>
+    </table>
 </div>
-<div> 
-    <h2>-------------------------</h2>
-</div>
--->
 
-<h2>Listado de cursos</h2>
-
-<table>
-<tr>
-    <th scope="col">Curso</th>
-    <th scope="col">Tema</th>
-    <th scope="col">Fecha de inicio</th>
-    <th scope="col">Fecha de finalizacion</th>
-    <th scope="col">Docente</th>
-    <th scope="col">Cantidad Alumnos</th>
-    <th scope="col">Precio Total</th>
-    <th scope="col">Alcance de Curso</th>
-    <th scope="col">Empresa</th>
-    <th scope="col">Aula</th>
-    <th scope="col">Acciones</th>
-</tr>
-
-<tr *ngFor="let course of courses">
-    <td align="center">{{course.name}}</td>
-    <td align="center">{{course.theme}}</td>
-    <td align="center">{{course.startDate | date:"dd/MM/yyyy"}}</td>
-    <td align="center">{{course.endDate | date:"dd/MM/yyyy"}}</td>
-    <td align="center">{{course.teacher}}</td>
-    <td align="center">{{course.studentsNumber}}</td>
-    <td align="center">{{course.totalPrice}}</td>
-    <td align="center">{{course.courseReach}}</td>
-    <td align="center">{{course.business}}</td>
-    <td align="center">{{course.classroom}}</td>
-    <td align="center">{{course.actions}}</td> 
-</tr>
-
-<button (click)="test2()"  type="submit">Añadir</button> 
+<button (click)="test2()" type="submit">Añadir</button>
 
 <!--
 <tr>
