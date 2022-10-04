@@ -4,6 +4,7 @@ import { CreateCourseComponent } from './components/create-course/create-course.
 import { CourseListComponent } from './components/course-list/course-list.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'course-list', pathMatch: 'full'},
   { path: 'create-course', component: CreateCourseComponent },
   { path: 'course-list', component: CourseListComponent },
 ];
