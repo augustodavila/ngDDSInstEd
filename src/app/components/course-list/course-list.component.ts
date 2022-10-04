@@ -23,7 +23,7 @@ export class CourseListComponent implements OnInit {
 
   test2():void{
     this.courses.push({
-      name: "Programacion",
+      name: "Programacion y Diseño",
       theme: "Oficina",
       startDate: new Date(),
       endDate: new Date("03/01/2022"),
