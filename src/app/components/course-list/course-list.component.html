@@ -35,16 +35,16 @@
 </tr>
 
 <tr *ngFor="let course of courses">
-    <td align="center">{{course.name}}</td>
-    <td align="center">{{course.theme}}</td>
-    <td align="center">{{course.startDate | date:"dd/MM/yyyy"}}</td>
-    <td align="center">{{course.endDate | date:"dd/MM/yyyy"}}</td>
-    <td align="center">{{course.teacher}}</td>
-    <td align="center">{{course.studentsNumber}}</td>
-    <td align="center">{{course.totalPrice}}</td>
+    <td align="center">{{course.nombre}}</td>
+    <td align="center">{{course.tema.nombre}}</td>
+    <td align="center">{{course.fechaInicio}}</td>
+    <td align="center">{{course.fechaFin}}</td>
+    <td align="center">{{course.docente.nombre}}</td>
+    <td align="center">{{course.cantidadAlumnos?course.cantidadAlumnos:0}}</td>
+    <td align="center">{{course.precioTotal}}</td>
     <td align="center">{{course.courseReach}}</td>
-    <td align="center">{{course.business}}</td>
-    <td align="center">{{course.classroom}}</td>
+    <td align="center">{{course.empresa?course.empresa.nombre:'Sin Empresa'}}</td>
+    <td align="center">{{course.aula.codigo}}</td>
     <td align="center">{{course.actions}}</td> 
 </tr>
 
