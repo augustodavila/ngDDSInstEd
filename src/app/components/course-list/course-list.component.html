@@ -1,10 +1,14 @@
-<div class="content">
-    <header>
-        Instituto Educativo - Listado de cursos
-    </header>
-    <table style="width:100%">
+<div class="container-fluid">
+    <div class = "p-2 d-flex justify-content-center">
+        <h2>Listado de cursos</h2>
+    </div>
+    <div class = "p-2">
+    <button (click)="test2()" class = "btn btn-primary" type="submit">Añadir curso</button> 
+</div>
+    <table class = "table table-striped table-bordered">
+        <thead>
         <tr>
-            <th scope="col" style="margin-left:70px;" >Curso</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Tema</th>
             <th scope="col">Fecha de inicio</th>
             <th scope="col">Fecha de finalizacion</th>
@@ -16,7 +20,8 @@
             <th scope="col">Aula</th>
             <th scope="col">Acciones</th>
         </tr>
-        
+    </thead>
+    <tbody>
         <tr *ngFor="let course of courses">
             <td align="center">{{course.nombre}}</td>
             <td align="center">{{course.tema.nombre}}</td>
@@ -25,17 +30,18 @@
             <td align="center">{{course.docente.nombre}}</td>
             <td align="center">{{course.cantidadAlumnos?course.cantidadAlumnos:0}}</td>
             <td align="center">{{course.precioTotal}}</td>
-            <td align="center">{{course.courseReach}}</td>
-            <td align="center">{{course.empresa?course.empresa.nombre:'Sin Empresa'}}</td>
-            <td align="center">{{course.aula.codigo}}</td>
-            <td align="center">{{course.actions}}</td> 
+            <td align="center">{{course.empresa!=null?'Empresarial':'Personal'}}</td>
+            <td align="center">{{course.empresa?course.empresa.nombre:'-'}}</td>
+            <td align="center">{{course.aula?course.aula.codigo:'-'}}</td>
+            <!-- <td align="center">{{course.actions}}</td>  -->
         </tr>
+        </tbody>
     </table>
 </div>
 
 
 
-<button (click)="test2()"  type="submit">Añadir</button> 
+
 
 <!--
 <tr>
