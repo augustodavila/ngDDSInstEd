@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CourseService } from 'src/app/services/course/course.service';
+import { Course } from 'src/app/models/course.model';
 
 @Component({
   selector: 'app-course-list',
@@ -8,17 +10,21 @@ import { CourseService } from 'src/app/services/course/course.service';
 })
 export class CourseListComponent implements OnInit {
 
-  courses: any=[];
+  courses: any=[Course];
 
-  constructor(public courseService:CourseService) { }
+  constructor(public courseService:CourseService, public router: Router) { }
 
   ngOnInit(): void {
     this.courseService.getAll().then((response:any)=>{
-      response.json().then((data:any)=>{
+      response.json().then((data:[Course])=>{
         this.courses=data;
         console.log(this.courses)
       })
     })
+  }
+
+  createCourse():void{
+    this.router.navigate(['create-course']);
   }
 
   test2():void{

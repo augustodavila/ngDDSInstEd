@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course/course.service';
+import { DocenteService } from 'src/app/services/docente/docente.service';
+import { TemaService } from 'src/app/services/tema/tema.service';
 
 @Component({
   selector: 'app-create-course',
@@ -8,63 +10,73 @@ import { CourseService } from 'src/app/services/course/course.service';
 })
 export class CreateCourseComponent implements OnInit {
 
-  public nombre:any="";
-  public tema:any="";
-  public temas:any=[];
-  public description:any="";
-  public docente:any="";
-  public docentes:any=[];
-  public fechaInicio:any="";
-  public fechaFin:any="";
-  public precioTotal:any="";
-  public showAlert:any=false;
+  nombre="";
+  tema="";
+  temas:any=[];
+  description="";
+  docente="";
+  docentes:any=[];
+  fechaInicio="";
+  fechaFin="";
+  precioPorAlumno="";
+  showAlert=false;
 
-  constructor(public courseService:CourseService) { }
+  constructor(
+    public courseService:CourseService,
+    public docenteService:DocenteService,
+    public temaService:TemaService
+  ) { }
 
   ngOnInit(): void {
-    this.courseService.getAllTema().then((response:any)=>{
+    this.temaService.getAllTemas().then((response:any)=>{
+      console.log(response)
       response.json().then((data:any)=>{
-        this.temas=data;
-        console.log(this.tema)
+        this.temas = data;
+        console.log(this.temas)
       })
     })
 
-    this.courseService.getAllDocente().then((response:any)=>{
+    this.docenteService.getAllDocentes().then((response:any)=>{
       response.json().then((data:any)=>{
         this.docentes=data;
-        console.log(this.docente)
+        console.log(this.docentes)
       })
     })
   }
 
 
   test():void{
-    console.log(this.nombre,this.tema,this.description,this.docente,this.precioTotal)
+    console.log(this.fechaInicio, this.fechaFin)
   }
 
   createCourse():void{
   
     var course = {
       tema:{
-        
+        id:this.tema
       },
       fechaInicio:this.fechaInicio,
       fechaFin:this.fechaFin,
       docente:{
-
+        id:this.docente
       },
-      
       nombre:this.nombre,
-      precioTotal:this.precioTotal,
-      
+      precioPorAlumno:this.precioPorAlumno,
+      aula:{
+        id:1
+      }
     }
-
-    this.showAlert=true;
-
+    console.log(course)
     this.courseService.createCourse(course).then((response:any)=>{
-      response.json().then((data:any)=>{
-        console.log(data)
-      })
+      if (response.status==200){
+        response.json().then((data:any)=>{
+          this.showAlert=true;
+          console.log(data)
+        })
+      }else{
+        alert("Error al crear curso")
+      }
+
     })
   }
 
@@ -78,7 +90,7 @@ export class CreateCourseComponent implements OnInit {
     this.docente="";
     this.fechaInicio="";
     this.fechaFin="";
-    this.precioTotal="";
+    this.precioPorAlumno="";
   }
 
 }

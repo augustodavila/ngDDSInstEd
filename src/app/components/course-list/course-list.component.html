@@ -3,7 +3,7 @@
         <h2>Listado de cursos</h2>
     </div>
     <div class = "p-2">
-    <button (click)="test2()" class = "btn btn-primary" type="submit">Añadir curso</button> 
+    <button (click)="createCourse()" class = "btn btn-primary" type="submit">Añadir curso</button> 
 </div>
     <table class = "table table-striped table-bordered">
         <thead>
@@ -24,11 +24,11 @@
     <tbody>
         <tr *ngFor="let course of courses">
             <td align="center">{{course.nombre}}</td>
-            <td align="center">{{course.tema.nombre}}</td>
+            <td align="center">{{course.tema?.nombre}}</td>
             <td align="center">{{course.fechaInicio}}</td>
             <td align="center">{{course.fechaFin}}</td>
-            <td align="center">{{course.docente.nombre}}</td>
-            <td align="center">{{course.cantidadAlumnos?course.cantidadAlumnos:0}}</td>
+            <td align="center">{{course.docente?.nombre}}</td>
+            <td align="center">{{course.empresa?(course.cantidadAlumnos?course.cantidadAlumnos:0):course.cantidadAlumnosCursoPersonal}}</td>
             <td align="center">{{course.precioTotal}}</td>
             <td align="center">{{course.empresa!=null?'Empresarial':'Personal'}}</td>
             <td align="center">{{course.empresa?course.empresa.nombre:'-'}}</td>
