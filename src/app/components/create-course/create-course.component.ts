@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from 'src/app/services/course/course.service';
 
 @Component({
   selector: 'app-create-course',
@@ -7,53 +8,77 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCourseComponent implements OnInit {
 
-/*   public title:any="";
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  test():void{
-    console.log(this.title)
-  } */
-
-  public name:any="";
-  public theme:any="";
+  public nombre:any="";
+  public tema:any="";
+  public temas:any=[];
   public description:any="";
-  public teacher:any="";
-  public startdate:any="";
-  public enddate:any="";
-  public starttime:any="";
-  public endtime:any="";
-  public cost:any="";
+  public docente:any="";
+  public docentes:any=[];
+  public fechaInicio:any="";
+  public fechaFin:any="";
+  public precioTotal:any="";
   public showAlert:any=false;
 
-  constructor() { }
+  constructor(public courseService:CourseService) { }
 
   ngOnInit(): void {
+    this.courseService.getAllTema().then((response:any)=>{
+      response.json().then((data:any)=>{
+        this.temas=data;
+        console.log(this.tema)
+      })
+    })
+
+    this.courseService.getAllDocente().then((response:any)=>{
+      response.json().then((data:any)=>{
+        this.docentes=data;
+        console.log(this.docente)
+      })
+    })
   }
 
+
   test():void{
-    console.log(this.name,this.theme,this.description,this.teacher,this.cost)
+    console.log(this.nombre,this.tema,this.description,this.docente,this.precioTotal)
   }
 
   createCourse():void{
-    // ver cosas de lucas
+  
+    var course = {
+      tema:{
+        
+      },
+      fechaInicio:this.fechaInicio,
+      fechaFin:this.fechaFin,
+      docente:{
+
+      },
+      
+      nombre:this.nombre,
+      precioTotal:this.precioTotal,
+      
+    }
+
     this.showAlert=true;
+
+    this.courseService.createCourse(course).then((response:any)=>{
+      response.json().then((data:any)=>{
+        console.log(data)
+      })
+    })
   }
+
+
 
   closeAlert():void{
     this.showAlert=false;
-    this.name="";
-    this.theme="";
+    this.nombre="";
+    this.tema="";
     this.description="";
-    this.teacher="";
-    this.startdate="";
-    this.enddate="";
-    this.starttime="";
-    this.endtime="";
-    this.cost="";
+    this.docente="";
+    this.fechaInicio="";
+    this.fechaFin="";
+    this.precioTotal="";
   }
 
 }

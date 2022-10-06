@@ -7,7 +7,7 @@
         <label>Nombre:</label>
         <input
           type="text"
-          [(ngModel)]="name"
+          [(ngModel)]="nombre"
           placeholder="Nombre del curso"
           class="input-text"
         />
@@ -15,11 +15,9 @@
 
       <div class="input">
         <label>Tema:</label>
-        <select name="select" [(ngModel)]="theme">
+        <select name="select" [(ngModel)]="tema">
             <option value="" disabled selected>Seleccione una opción</option>
-            <option value="Programacion">Programación</option>
-            <option value="Oficina">Oficina</option>
-            <option value="Diseño Grafico">Diseño Gráfico</option>
+            <option *ngFor="let tema of temas" [value]="tema.id">{{tema.nombre}}</option>
         </select>
       </div>
 
@@ -30,39 +28,27 @@
 
       <div class="input">
         <label>Docente:</label>
-        <select name="select" [(ngModel)]="teacher">
+        <select name="select" [(ngModel)]="docente">
             <option value="" disabled selected>Seleccione una opción</option>
-            <option value="Andres">Andres</option>
-            <option value="Belen">Belen</option>
-            <option value="Carlos">Carlos</option>
+            <option *ngFor="let docente of docentes" [value]="docente.id">{{docente.nombre}}</option>
         </select>
       </div>
 
       <div class="input">
         <label>Fecha de inicio:</label>
-        <input class="input-date" type="date" [(ngModel)]="startdate"/>
+        <input class="input-date" type="date" [(ngModel)]="fechaInicio"/>
       </div>
 
       <div class="input">
         <label>Fecha de finalización:</label>
-        <input class="input-date" type="date" [(ngModel)]="enddate"/>
-      </div>
-
-      <div class="input">
-        <label>Horario de inicio:</label>
-        <input class="input-date" type="time" [(ngModel)]="starttime"/>
-      </div>
-
-      <div class="input">
-        <label>Hora de finalización:</label>
-        <input class="input-date" type="time" [(ngModel)]="endtime"/>
+        <input class="input-date" type="date" [(ngModel)]="fechaFin"/>
       </div>
 
       <div class="input">
         <label>Costo:</label>
         <input
           type="text"
-          [(ngModel)]="cost"
+          [(ngModel)]="precioTotal"
           class="input-text"
           placeholder="$"
         />
@@ -92,53 +78,3 @@
   </div>
 </div>
 <div class="backdrop" *ngIf="showAlert"></div>
-
-
-<!--
-<div> 
-  <h2>-------------------------</h2>
-</div>
-<header style="padding: 1rem; background-color: #F7F2A2; text-align: center;">
-  Crear nuevo curso particular
-</header>
-<form action="/">
-  <label for="nombre">Nombre:</label><br>
-  <input type="text" id="nombre" name="nombre" placeholder="Nombre del curso"><br><br>
-
-  <label for="tematica">Tematica:</label><br>
-  <select name="tematica">
-      <option value="programacion">Programacion</option>
-      <option value="programacion">Programacion</option>
-      <option value="programacion">Programacion</option>
-  </select><br><br>
-  <label for="descripcion">Descripcion:</label><br>
-
-  <label for="docente">Docente:</label><br>
-  <select name="docente">
-      <option value="Perez">Perez</option>
-      <option value="Lopez">Lopez</option> 
-  </select><br><br>
-  <label for="fecha_inicio">Fecha Inicio:</label><br>
-  <input type="date"><br><br>
-  <label for="fecha_finalizacion">Fecha Finalizacion:</label><br>
-  <input type="date"><br><br>
-  <label for="horario_inicio">Horario de inicio:</label><br>
-  <input type="time"><br><br>
-  <label for="horario_finalizacion">Horario de finalizacion:</label><br>
-  <input type="time"><br><br>
-  <label for="costo">Costo:</label><br>
-  <input type="number" min="1" step="any" placeholder="$">
-</form>
-<br> 
-<a href="#">Cancelar</a>
-<button>Agregar</button>
-<br>
-<section  style="border: 1px solid">
-<h2 style="background-color: #F7F2A2;padding: 0px;margin-top: 0px;">Curso creado</h2>
-<p>El curso ha sido creado exitosamente</p>
-<button>Volver</button>
-</section>
-<div>
-
-</div>
--->
