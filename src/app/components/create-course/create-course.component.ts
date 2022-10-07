@@ -52,20 +52,20 @@ export class CreateCourseComponent implements OnInit {
   createCourse():void{
   
     var course = {
-      tema:{
-        id:this.tema
+      "tema":{
+        "id":this.tema
       },
-      fechaInicio:this.fechaInicio,
-      fechaFin:this.fechaFin,
-      docente:{
-        id:this.docente
+      "fechaInicio":this.fechaInicio,
+      "fechaFin":this.fechaFin,
+      "docente":{
+        "id":this.docente
       },
-      nombre:this.nombre,
-      precioPorAlumno:this.precioPorAlumno,
-      aula:{
-        id:1
+      "nombre":this.nombre,
+      "precioPorAlumno":this.precioPorAlumno,
+      "aula":{
+        "id":1
       }
-    }
+    };
     console.log(course)
     this.courseService.createCourse(course).then((response:any)=>{
       if (response.status==200){

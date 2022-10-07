@@ -3,3 +3,6 @@ table th {
     top: 0;
     background-color: white;
 }
+table {
+    font-size: 14px;
+}

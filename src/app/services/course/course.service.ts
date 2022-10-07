@@ -16,6 +16,6 @@ export class CourseService {
   }
 
   createCourse(course:any): any {
-    return fetch(this.baseUrl, {method: 'POST', body:course, headers: {contentType: 'text/plain;charset=UTF-8'}})
+    return fetch(this.baseUrl, {method: 'POST', body:JSON.stringify(course), headers: {'Content-Type': 'application/json'}})
   }
 }
