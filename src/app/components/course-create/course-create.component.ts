@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course/course.service';
+import { Router } from '@angular/router';
 import { DocenteService } from 'src/app/services/docente/docente.service';
 import { TemaService } from 'src/app/services/tema/tema.service';
+import { AulaService } from 'src/app/services/aula/aula.service';
 
 @Component({
-  selector: 'app-create-course',
-  templateUrl: './create-course.component.html',
-  styleUrls: ['./create-course.component.css']
+  selector: 'app-course-create',
+  templateUrl: './course-create.component.html',
+  styleUrls: ['./course-create.component.css']
 })
-export class CreateCourseComponent implements OnInit {
+export class CourseCreateComponent implements OnInit {
 
   nombre="";
   tema="";
   temas:any=[];
-  description="";
+  aula="";
+  aulas:any=[];
   docente="";
   docentes:any=[];
   fechaInicio="";
@@ -24,7 +27,9 @@ export class CreateCourseComponent implements OnInit {
   constructor(
     public courseService:CourseService,
     public docenteService:DocenteService,
-    public temaService:TemaService
+    public temaService:TemaService,
+    public aulaService:AulaService,
+    public router:Router
   ) { }
 
   ngOnInit(): void {
@@ -42,11 +47,18 @@ export class CreateCourseComponent implements OnInit {
         console.log(this.docentes)
       })
     })
+
+    this.aulaService.getAllAulas().then((response:any)=>{
+      response.json().then((data:any)=>{
+        this.aulas=data;
+        console.log(this.aulas)
+      })
+    })
   }
 
 
-  test():void{
-    console.log(this.fechaInicio, this.fechaFin)
+  close():void{
+    this.router.navigate(['course-list']);
   }
 
   createCourse():void{
@@ -63,7 +75,7 @@ export class CreateCourseComponent implements OnInit {
       "nombre":this.nombre,
       "precioPorAlumno":this.precioPorAlumno,
       "aula":{
-        "id":1
+        "id":this.aula
       }
     };
     console.log(course)
@@ -86,8 +98,8 @@ export class CreateCourseComponent implements OnInit {
     this.showAlert=false;
     this.nombre="";
     this.tema="";
-    this.description="";
     this.docente="";
+    this.aula="";
     this.fechaInicio="";
     this.fechaFin="";
     this.precioPorAlumno="";

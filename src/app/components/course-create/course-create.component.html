@@ -22,6 +22,14 @@
       </div>
 
       <div class="input">
+        <label>Aula:</label>
+        <select name="select" [(ngModel)]="aula">
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option *ngFor="let aula of aulas" [value]="aula.id">{{aula.codigo}}</option>
+        </select>
+      </div>
+
+      <div class="input">
         <label>Docente:</label>
         <select name="select" [(ngModel)]="docente">
             <option value="" disabled selected>Seleccione una opción</option>
@@ -50,7 +58,7 @@
       </div>
 
       <div class="buttoncontainer">
-      <button  (click)="test()"  type="submit" >
+      <button  (click)="close()"  type="submit" >
         Cancelar
       </button>
   

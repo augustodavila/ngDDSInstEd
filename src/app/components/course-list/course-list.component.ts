@@ -24,7 +24,7 @@ export class CourseListComponent implements OnInit {
   }
 
   createCourse():void{
-    this.router.navigate(['create-course']);
+    this.router.navigate(['course-create']);
   }
 
   test2():void{
