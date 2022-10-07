@@ -78,6 +78,7 @@ export class CourseCreateComponent implements OnInit {
         "id":this.aula
       }
     };
+    
     console.log(course)
     this.courseService.createCourse(course).then((response:any)=>{
       if (response.status==200){
