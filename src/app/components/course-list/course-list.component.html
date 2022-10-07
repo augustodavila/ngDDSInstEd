@@ -33,7 +33,13 @@
             <td align="center">{{course.empresa!=null?'Empresarial':'Personal'}}</td>
             <td align="center">{{course.empresa?course.empresa.nombre:'-'}}</td>
             <td align="center">{{course.aula?course.aula.codigo:'-'}}</td>
-            <!-- <td align="center">{{course.actions}}</td>  -->
+            <td align="center">
+                <div style="display: flex; justify-content: space-around;">
+                    <img src="..\..\..\assets\icons\pencil-outline.svg" height="20" style="cursor: pointer;">
+                    <img src="..\..\..\assets\icons\close-circle-outline.svg" height="20" style="cursor: pointer;">
+                </div>
+
+            </td> 
         </tr>
         </tbody>
     </table>
